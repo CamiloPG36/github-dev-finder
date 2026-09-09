@@ -13,5 +13,4 @@ Construcción de una pequeña SPA (Single Page Application) para consultar usuar
 - Git
 
 ## Estado del proyecto
-En desarrollo 
-
+En desarrollo
