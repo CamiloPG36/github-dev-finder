@@ -10,13 +10,13 @@ const baseUrlAPI = 'https://api.github.com/users';
 buttonElement.addEventListener('click', () => {
     const username = inputElement.value.trim();
     if (username === '') {
-        console.log('Por favor, ingrese un nombre de usuario.');
+        profileContainer.innerHTML = `<p class="error-consult">No ha ingresado ningún usuario para consultar.</p>`;
         return;
     }
     fetchUserProfile(username);
 });
 
-// Create a function to Fetch user profile data from the GitHub API
+// Add a function to Fetch user profile data from the GitHub API
 async function fetchUserProfile(username) {
     try {
         const response = await fetch(`${baseUrlAPI}/${username}`);
@@ -24,9 +24,27 @@ async function fetchUserProfile(username) {
             throw new Error('Usuario no encontrado');
         }
         const data = await response.json();
+        displayUserProfile(data);
 
-        console.log(data);
     } catch (error) {
-        console.error('Error al obtener el perfil del usuario:', error);
+    profileContainer.innerHTML = `<p class="error-message">⚠️ ${error.message}⚠️</p>`;
     }
+}
+
+// Add a function to display the user profile data in the DOM
+function displayUserProfile(data) {
+    profileContainer.innerHTML = `
+        <article class="profile-card">
+            <img src="${data.avatar_url}" alt="${data.login}'s profile avatar" width="150" height="150">
+            <h2>${data.name || data.login}</h2>
+            <p class="username">@${data.login}</p>
+            <p class="bio">${data.bio || 'No bio available'}</p>
+            <div class="stats">
+                <p>Public Repos: ${data.public_repos}</p>
+                <p>Followers: ${data.followers}</p>
+                <p>Following: ${data.following}</p>
+            </div>
+            <a href="${data.html_url}" target="_blank" rel="noopener noreferrer">View Profile on GitHub</a>
+        </article>
+    `;
 }
