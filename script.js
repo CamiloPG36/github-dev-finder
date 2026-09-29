@@ -6,14 +6,25 @@ const profileContainer = document.getElementById('profile-container');
 // Defining the base URL for the GitHub API
 const baseUrlAPI = 'https://api.github.com/users';
 
-// Add event listener for the search button click
-buttonElement.addEventListener('click', () => {
+
+// Function to handle the search logic
+function handleSearch() {
     const username = inputElement.value.trim();
     if (username === '') {
-        profileContainer.innerHTML = `<p class="error-consult">No ha ingresado ningún usuario para consultar.</p>`;
+        profileContainer.innerHTML = `<p class="error-consult">No hay ingresado ningún usuario para consultar.</p>`;
         return;
     }
     fetchUserProfile(username);
+}
+
+// Add event listener for the search button click
+buttonElement.addEventListener('click', handleSearch);
+
+// Add event listener for pressing the 'Enter' key in the input
+inputElement.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        handleSearch();
+    }
 });
 
 // Add a function to Fetch user profile data from the GitHub API
@@ -37,8 +48,7 @@ function displayUserProfile(data) {
         <article class="profile-card">
             <img src="${data.avatar_url}" alt="${data.login}'s profile avatar" width="150" height="150">
             <h2>${data.name || data.login}</h2>
-            <p class="username">@${data.login}</p>
-            <p class="bio">${data.bio || 'No bio available'}</p>
+            <p class="bio">Bio: ${data.bio || 'No available'}</p>
             <div class="stats">
                 <p>Public Repos: ${data.public_repos}</p>
                 <p>Followers: ${data.followers}</p>
