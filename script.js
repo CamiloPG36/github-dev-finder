@@ -11,7 +11,7 @@ const baseUrlAPI = 'https://api.github.com/users';
 function handleSearch() {
     const username = inputElement.value.trim();
     if (username === '') {
-        profileContainer.innerHTML = `<p class="error-consult">No hay ingresado ningún usuario para consultar.</p>`;
+        profileContainer.innerHTML = `<p class="error-consult">No ha ingresado ningún usuario para consultar.</p>`;
         return;
     }
     fetchUserProfile(username);
@@ -50,9 +50,9 @@ function displayUserProfile(data) {
             <h2>${data.name || data.login}</h2>
             <p class="bio">Bio: ${data.bio || 'No available'}</p>
             <div class="stats">
-                <p>Public Repos: ${data.public_repos}</p>
-                <p>Followers: ${data.followers}</p>
-                <p>Following: ${data.following}</p>
+                <p><span>Public Repos:</span> <span>${data.public_repos}</span></p>
+                <p><span>Followers:</span> <span>${data.followers}</span></p>
+                <p><span>Following:</span> <span>${data.following}</span></p>
             </div>
             <a href="${data.html_url}" target="_blank" rel="noopener noreferrer">View Profile on GitHub</a>
         </article>
