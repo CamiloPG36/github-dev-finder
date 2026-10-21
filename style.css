@@ -1,11 +1,18 @@
-/* Paletas de colores: */
-/* Fondo general: #0d1117 (Oscuro profundo)
-Fondo de tarjeta y contenedores: #161b22 (Oscuro contrastante)
-Bordes: #30363d (Gris sutil)
-Texto principal: #c9d1d9 (Blanco suave)
-Texto secundario / Leyendas: #8b949e (Gris medio)
-Enlaces e interactivos: #58a6ff (Azul GitHub)
-Alertas de error: #f85149 (Rojo suave) */
+:root {
+    /* Paleta principal - GitHub Dark */
+    --background-color: #0d1117;        /* Fondo general */
+    --card-background-color: #161b22;   /* Fondo de tarjeta y contenedores */
+    --border-color: #30363d;            /* Bordes */
+    --text-color: #c9d1d9;              /* Texto principal */
+    --secondary-text-color: #8b949e;    /* Texto secundario / Leyendas */
+    --link-color: #58a6ff;              /* Enlaces e interactivos */
+    --error-color: #f85149;             /* Alertas de error */
+
+    /* Fondos secundarios y formulario */
+    --error-bg-color: #2d1517;
+    --button-bg-color: #007BFF; 
+    --input-border-color: #30363d;
+}
 
 
 * {
@@ -16,8 +23,8 @@ Alertas de error: #f85149 (Rojo suave) */
 
 body {
     font-family: sans-serif;
-    background-color: #0d1117;
-    color: #c9d1d9;
+    background-color: var(--background-color);
+    color: var(--text-color);
     margin: 20px;
     display: flex;
     flex-direction: column;
@@ -35,7 +42,7 @@ body {
 input {
     font-family: inherit;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--input-border-color);
     border-radius: 4px;
     width: 100%;
     max-width: 300px;
@@ -46,14 +53,14 @@ button {
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
-    background-color: #007BFF;
+    background-color: var(--button-bg-color);
     color: white;
     cursor: pointer;
 }
 
 .profile-card {
-    background-color: #161b22;
-    border: 1px solid #30363d;
+    background-color: var(--card-background-color);
+    border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 20px;
     width: 100%;
@@ -64,7 +71,7 @@ button {
 
 .profile-card img {
     border-radius: 50%;
-    border: 2px solid #30363d;
+    border: 2px solid var(--border-color);
     margin-bottom: 10px;
 }
 
@@ -75,11 +82,11 @@ button {
 
 .bio {
     margin-bottom: 15px;
-    color: #8b949e;
+    color: var(--secondary-text-color);
 }
 
 .profile-card a{
-    color: #58a6ff;
+    color: var(--link-color);
     text-decoration: none;
 }
 
@@ -93,8 +100,8 @@ button {
     gap: 10px;
     margin: 15px 0;
     padding: 12px;
-    background-color: #0d1117;
-    border: 1px solid #30363d;
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
     border-radius: 6px;
 }
 
@@ -103,26 +110,26 @@ button {
     flex-direction: column;
     align-items: center;
     font-size: 0.9em;
-    color: #c9d1d9;
+    color: var(--text-color);
     text-align: center;
 }
 
 .stats p span:first-child {
     font-size: 1em;
-    color: #8b949e;
+    color: var(--secondary-text-color);
     font-weight: bold;
 }
 
 .stats p span:last-child {
     font-size: 1em;
     font-weight: bold;
-    color: #58a6ff;
+    color: var(--link-color);
 }
 
 .error-consult {
-    color:#f85149;
-    background-color: #2d1517;
-    border: 1px solid #f85149;
+    color: var(--error-color);
+    background-color: var(--error-bg-color);
+    border: 1px solid var(--error-color);
     border-radius: 6px;
     padding: 8px;
     font-size: 1em;
@@ -130,7 +137,7 @@ button {
 }
 
 .error-message {
-    color: #f85149;
+    color: var(--error-color);
     font-size: 1.2em;
     margin-top: 20px;
     text-align: center;
