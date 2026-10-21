@@ -1,3 +1,13 @@
+/* Paletas de colores: */
+/* Fondo general: #0d1117 (Oscuro profundo)
+Fondo de tarjeta y contenedores: #161b22 (Oscuro contrastante)
+Bordes: #30363d (Gris sutil)
+Texto principal: #c9d1d9 (Blanco suave)
+Texto secundario / Leyendas: #8b949e (Gris medio)
+Enlaces e interactivos: #58a6ff (Azul GitHub)
+Alertas de error: #f85149 (Rojo suave) */
+
+
 * {
     margin: 0;
     padding: 0;
@@ -7,7 +17,7 @@
 body {
     font-family: sans-serif;
     background-color: #0d1117;
-    color: #eef2f5;
+    color: #c9d1d9;
     margin: 20px;
     display: flex;
     flex-direction: column;
@@ -39,4 +49,89 @@ button {
     background-color: #007BFF;
     color: white;
     cursor: pointer;
+}
+
+.profile-card {
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.profile-card img {
+    border-radius: 50%;
+    border: 2px solid #30363d;
+    margin-bottom: 10px;
+}
+
+.profile-card h2{
+    margin-bottom: 10px;
+    font-size: 1.7em;
+}
+
+.bio {
+    margin-bottom: 15px;
+    color: #8b949e;
+}
+
+.profile-card a{
+    color: #58a6ff;
+    text-decoration: none;
+}
+
+.profile-card a:hover {
+    text-decoration: underline;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    margin: 15px 0;
+    padding: 12px;
+    background-color: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+}
+
+.stats p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.9em;
+    color: #c9d1d9;
+    text-align: center;
+}
+
+.stats p span:first-child {
+    font-size: 1em;
+    color: #8b949e;
+    font-weight: bold;
+}
+
+.stats p span:last-child {
+    font-size: 1em;
+    font-weight: bold;
+    color: #58a6ff;
+}
+
+.error-consult {
+    color:#f85149;
+    background-color: #2d1517;
+    border: 1px solid #f85149;
+    border-radius: 6px;
+    padding: 8px;
+    font-size: 1em;
+    text-align: center;
+}
+
+.error-message {
+    color: #f85149;
+    font-size: 1.2em;
+    margin-top: 20px;
+    text-align: center;
 }
